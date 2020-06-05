@@ -10,3 +10,4 @@ Before beginning the tutorial, be sure to do the following:
   + https://rstudio.com/products/rstudio/download/
 * Download GitBash
   + https://git-scm.com/downloads
+* Clone the repository and download ZIP
