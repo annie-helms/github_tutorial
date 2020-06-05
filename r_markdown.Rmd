@@ -1,0 +1,49 @@
+---
+title: "The Basics of RMarkdown"
+author: "Annie Helms (annie_helms@berkeley.edu)"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+In an R Markdown file, we can use the same Markdown syntax as in a Jupyter Notebook. This type of file is similar to a Jupyter notebook, because we can explain the function of code chunks using Markdown, include the R code in the chunk below, and the document will include the output of the code below.
+
+## R Code Chunks
+
+An R code chunk is made up of minimally three lines, where the first line is used to indicate that we want to switch from Markdown to R code, the next line(s) contains R code, and the last line indicates we want to switch back to Markdown.
+
+```{r}
+library(dplyr)
+```
+
+In the brackets in the first line, we can use different commands to change how the code chunk is run. Some examples are:
+
+* echo=FALSE; the code chunk will run but will not be visible in the document
+* warning=FALSE; warnings generated will not be printed in the output
+* eval=FALSE; the code chunk will not be run, but will be visible
+* error=FALSE; errors will not be printed in the output
+* message=FALSE; messages will not be printed in the output (helpful with libraries!)
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+```
+
+Because we ran the code chunk with message=FALSE and warning=FALSE, we can ensure that no messages will appear in the output (unlike the output following the code chunk for library(dplyr)).
+
+## Including Plots
+
+Anything produced by the code chunk will be printed in the output, including plots. The code chunk below is used to generate a plot from the cars data set that comes pre-installed in base R. However, only the ouput of this code chunk will be visible in the knit document because we have indicated that echo=FALSE.
+
+```{r cars, echo=FALSE}
+plot(cars)
+```
+
+When you have finished with your document, press "Knit" then "Knit to HTML" to compile the document. You can also knit your .Rmd file into a PDF, but you must have LaTeX installed to do so.
